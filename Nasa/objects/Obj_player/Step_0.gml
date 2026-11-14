@@ -1,8 +1,4 @@
 
-if (dead) {
-    exit;
-}
-
 hor = (keyboard_check(ord("D")) || keyboard_check(vk_right))
     - (keyboard_check(ord("A")) || keyboard_check(vk_left));
 
@@ -33,4 +29,4 @@ if (hor != 0 || ver != 0) {
     }
 }
 
-body_sprites();
+update_sprite();
