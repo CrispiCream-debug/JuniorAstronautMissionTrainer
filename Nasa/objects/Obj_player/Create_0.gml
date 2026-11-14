@@ -1,10 +1,9 @@
 //stats
-move_speed = 2;
+move_speed = 3.5;
 hor = 0;
 ver = 0;
 facing = "up";
-//tilemap = layer_tilemap_get_id(""); //hasta q tengamos objetos de colisiones
-
+tilemap = layer_tilemap_get_id("col_tiles");
 
 function update_sprite() {
     var moving = (hor != 0 || ver != 0);

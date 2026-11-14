@@ -11,8 +11,20 @@ if (hor != 0 || ver != 0) {
     hor /= len;
     ver /= len;
 
-    x += hor * move_speed;
-    y += ver * move_speed;
+    
+var mov_x = hor * move_speed;
+var mov_y = ver * move_speed;
+
+    // Colisión horizontal
+    if (!place_meeting(x + mov_x, y, tilemap)) {
+        x += mov_x;
+    }
+    
+    // Colisión vertical
+    if (!place_meeting(x, y + mov_y, tilemap)) {
+        y += mov_y;
+    }
+
 
     if (abs(hor) >= abs(ver)) {
         if (hor > 0) {
@@ -30,3 +42,4 @@ if (hor != 0 || ver != 0) {
 }
 
 update_sprite();
+
