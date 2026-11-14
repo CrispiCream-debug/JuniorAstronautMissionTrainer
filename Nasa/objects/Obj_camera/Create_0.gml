@@ -1,4 +1,4 @@
-camera_zoom = 2;
+camera_zoom = 3.5;
 
 function follow_player() {
     var cam = view_camera[0];
