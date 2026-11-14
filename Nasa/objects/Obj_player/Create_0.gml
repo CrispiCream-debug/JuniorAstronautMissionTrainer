@@ -1,5 +1,5 @@
 //stats
-move_speed = 3.5;
+move_speed = 3;
 hor = 0;
 ver = 0;
 facing = "up";
