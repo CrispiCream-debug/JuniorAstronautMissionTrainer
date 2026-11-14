@@ -1,19 +1,19 @@
 {
   "$GMTileSet":"v1",
-  "%Name":"TileSet1",
+  "%Name":"placeholder",
   "autoTileSets":[],
   "macroPageTiles":{
     "SerialiseHeight":0,
     "SerialiseWidth":0,
     "TileSerialiseData":[],
   },
-  "name":"TileSet1",
+  "name":"placeholder",
   "out_columns":4,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
     "name":"tiles",
-    "path":"folders/Rooms/tiles.yy",
+    "path":"folders/tiles.yy",
   },
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
