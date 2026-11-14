@@ -10,6 +10,7 @@
   },
   "defaultScriptType":0,
   "Folders":[
+    {"$GMFolder":"","%Name":"backgrounds","folderPath":"folders/sprites/backgrounds.yy","name":"backgrounds","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"objects","folderPath":"folders/objects.yy","name":"objects","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Rooms","folderPath":"folders/Rooms.yy","name":"Rooms","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"sprites","folderPath":"folders/sprites.yy","name":"sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -29,7 +30,6 @@
     {"id":{"name":"Obj_player","path":"objects/Obj_player/Obj_player.yy",},},
     {"id":{"name":"beta_room","path":"rooms/beta_room/beta_room.yy",},},
     {"id":{"name":"placeholderBG","path":"sprites/placeholderBG/placeholderBG.yy",},},
-    {"id":{"name":"Sprite2","path":"sprites/Sprite2/Sprite2.yy",},},
     {"id":{"name":"tabo_down_iddle","path":"sprites/tabo_down_iddle/tabo_down_iddle.yy",},},
     {"id":{"name":"tabo_down_move","path":"sprites/tabo_down_move/tabo_down_move.yy",},},
     {"id":{"name":"tabo_left_iddle","path":"sprites/tabo_left_iddle/tabo_left_iddle.yy",},},

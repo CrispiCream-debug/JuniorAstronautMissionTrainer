@@ -3,13 +3,12 @@ move_speed = 2;
 hor = 0;
 ver = 0;
 facing = "up";
-tilemap = layer_tilemap_get_id("Col_tiles");
+//tilemap = layer_tilemap_get_id(""); //hasta q tengamos objetos de colisiones
 
 
 function update_sprite() {
     var moving = (hor != 0 || ver != 0);
     switch (facing) {
-
         case "up":
             sprite_index = moving ? tabo_up_move : tabo_up_iddle;
             break;
