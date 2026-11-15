@@ -27,7 +27,6 @@ events_survived = 0;       // score
 
 // Radiacion ambiental en la base (escala 0-100, alimentada por radiation_points de cada impacto)
 radiation = 100;
-radiation_decay_per_second = 4;
 radiation_damage_scale = 0.08; // vida perdida por segundo por cada punto de radiacion
 
 var _buffer = buffer_load("eventos_juego.json");
