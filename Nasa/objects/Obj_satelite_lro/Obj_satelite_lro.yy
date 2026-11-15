@@ -29,7 +29,7 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":false,
+  "solid":true,
   "spriteId":{
     "name":"Sp_satelite_lro",
     "path":"sprites/Sp_satelite_lro/Sp_satelite_lro.yy",

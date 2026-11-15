@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"draw_interaction_outline",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"draw_interaction_outline",
+  "parent":{
+    "name":"Nasa",
+    "path":"Nasa.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

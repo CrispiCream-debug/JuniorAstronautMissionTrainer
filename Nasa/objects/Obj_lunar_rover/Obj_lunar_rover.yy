@@ -29,7 +29,7 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":false,
+  "solid":true,
   "spriteId":{
     "name":"Sp_lunar_rover",
     "path":"sprites/Sp_lunar_rover/Sp_lunar_rover.yy",

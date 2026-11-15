@@ -2,6 +2,10 @@ if (!unlocked) {
     exit;
 }
 
+if (player_near) {
+    draw_interaction_outline();
+}
+
 draw_self();
 
 if (!player_near || info_text == "") {
