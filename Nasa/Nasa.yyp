@@ -50,6 +50,7 @@
     {"id":{"name":"Obj_energybar","path":"objects/Obj_energybar/Obj_energybar.yy",},},
     {"id":{"name":"Obj_flag","path":"objects/Obj_flag/Obj_flag.yy",},},
     {"id":{"name":"Obj_frot","path":"objects/Obj_frot/Obj_frot.yy",},},
+    {"id":{"name":"Obj_game_over","path":"objects/Obj_game_over/Obj_game_over.yy",},},
     {"id":{"name":"Obj_healthbar","path":"objects/Obj_healthbar/Obj_healthbar.yy",},},
     {"id":{"name":"Obj_info_item","path":"objects/Obj_info_item/Obj_info_item.yy",},},
     {"id":{"name":"Obj_lunar_rover","path":"objects/Obj_lunar_rover/Obj_lunar_rover.yy",},},
@@ -63,6 +64,7 @@
     {"id":{"name":"Obj_space_weather","path":"objects/Obj_space_weather/Obj_space_weather.yy",},},
     {"id":{"name":"Obj_suit","path":"objects/Obj_suit/Obj_suit.yy",},},
     {"id":{"name":"beta_room","path":"rooms/beta_room/beta_room.yy",},},
+    {"id":{"name":"game_over_room","path":"rooms/game_over_room/game_over_room.yy",},},
     {"id":{"name":"draw_interaction_outline","path":"scripts/draw_interaction_outline/draw_interaction_outline.yy",},},
     {"id":{"name":"Sh_interaction_outline","path":"shaders/Sh_interaction_outline/Sh_interaction_outline.yy",},},
     {"id":{"name":"background","path":"sprites/background/background.yy",},},
@@ -78,6 +80,7 @@
     {"id":{"name":"frot_right_move","path":"sprites/frot_right_move/frot_right_move.yy",},},
     {"id":{"name":"frot_up_iddle","path":"sprites/frot_up_iddle/frot_up_iddle.yy",},},
     {"id":{"name":"frot_up_move","path":"sprites/frot_up_move/frot_up_move.yy",},},
+    {"id":{"name":"game_over","path":"sprites/game_over/game_over.yy",},},
     {"id":{"name":"Img_box","path":"sprites/Img_box/Img_box.yy",},},
     {"id":{"name":"Img_dish","path":"sprites/Img_dish/Img_dish.yy",},},
     {"id":{"name":"Img_flag","path":"sprites/Img_flag/Img_flag.yy",},},
@@ -120,6 +123,7 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"beta_room","path":"rooms/beta_room/beta_room.yy",},},
+    {"roomId":{"name":"game_over_room","path":"rooms/game_over_room/game_over_room.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

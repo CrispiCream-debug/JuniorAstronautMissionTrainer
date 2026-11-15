@@ -1,3 +1,7 @@
+if (defeated || health_ <= 0) {
+    exit;
+}
+
 in_dome = place_meeting(x, y, Obj_domo);
 
 // No moverse mientras alguien habla

@@ -1,3 +1,15 @@
+if (rescue_target != noone) {
+    if (instance_exists(rescue_target)) {
+        if (!rescue_arrived) {
+            walk_to_player();
+        }
+        if (rescue_arrived) {
+            face_player_direction(rescue_target.x - x, rescue_target.y - y, false);
+        }
+    }
+    exit;
+}
+
 var player = instance_nearest(x, y, Obj_player);
 if (player == noone) {
     exit;
@@ -9,8 +21,4 @@ if (dx == 0 && dy == 0) {
     exit;
 }
 
-if (abs(dx) >= abs(dy)) {
-    sprite_index = dx > 0 ? frot_right_iddle : frot_left_iddle;
-} else {
-    sprite_index = dy > 0 ? frot_down_iddle : frot_up_iddle;
-}
+face_player_direction(dx, dy, false);

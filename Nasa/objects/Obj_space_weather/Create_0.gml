@@ -19,6 +19,7 @@ popup_seconds = 2.5;
 max_alerts_read = 2;
 
 clock = 0;                 // segundos de juego en esta vuelta al año
+survival_seconds = 0;      // tiempo acumulado de la partida, incluso si el año se reinicia
 next_index = 0;            // siguiente evento por salir
 impacts = [];              // { time, event }: eventos que vienen en camino a la base
 alerts = [];               // { time, event }: eventos importantes que Frot aun no lee
