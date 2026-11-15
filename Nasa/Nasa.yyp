@@ -35,7 +35,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.4.222",
+    "IDEVersion":"2026.0.0.16",
   },
   "name":"Nasa",
   "resources":[
@@ -71,6 +71,7 @@
     {"id":{"name":"frot_right_move","path":"sprites/frot_right_move/frot_right_move.yy",},},
     {"id":{"name":"frot_up_iddle","path":"sprites/frot_up_iddle/frot_up_iddle.yy",},},
     {"id":{"name":"frot_up_move","path":"sprites/frot_up_move/frot_up_move.yy",},},
+    {"id":{"name":"Obj_battery_container","path":"sprites/Obj_battery_container/Obj_battery_container.yy",},},
     {"id":{"name":"placeholder_tile","path":"sprites/placeholder_tile/placeholder_tile.yy",},},
     {"id":{"name":"placeholderBG","path":"sprites/placeholderBG/placeholderBG.yy",},},
     {"id":{"name":"Sp_box","path":"sprites/Sp_box/Sp_box.yy",},},
