@@ -1,3 +1,16 @@
+// No moverse mientras alguien habla
+var _blocked = false;
+with (Obj_dialogue) {
+    if (blocking) {
+        _blocked = true;
+    }
+}
+if (_blocked) {
+    hor = 0;
+    ver = 0;
+    update_sprite();
+    exit;
+}
 
 hor = (keyboard_check(ord("D")) || keyboard_check(vk_right))
     - (keyboard_check(ord("A")) || keyboard_check(vk_left));

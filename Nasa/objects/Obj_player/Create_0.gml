@@ -1,4 +1,6 @@
 //stats
+energy_ = 100;
+health_ = 100;
 move_speed = 3;
 hor = 0;
 ver = 0;
