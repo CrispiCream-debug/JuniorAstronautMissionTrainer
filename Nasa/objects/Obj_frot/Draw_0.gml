@@ -17,7 +17,9 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_bottom);
 var _bob = sin(current_time * 0.008) * 2;
 draw_set_color(make_color_rgb(168, 24, 24));
-draw_text_transformed(x, bbox_top - 2 + _bob, "!", 1.5, 1.5, 0);
+// Arriba del sprite dibujado (bbox_top es la mascara de los pies, no la cabeza)
+var _sprite_top = y - sprite_yoffset * image_yscale;
+draw_text_transformed(x, _sprite_top - 4 + _bob, "!", 1.5, 1.5, 0);
 
 if (player_near) {
     draw_set_color(c_white);
