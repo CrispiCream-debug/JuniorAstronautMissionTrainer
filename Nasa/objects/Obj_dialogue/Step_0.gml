@@ -24,6 +24,7 @@ var _advance_pressed = input_delay <= 0 && (
     keyboard_check_pressed(vk_space)
     || keyboard_check_pressed(vk_enter)
     || keyboard_check_pressed(ord("Z"))
+    || keyboard_check_pressed(ord("E"))
     || mouse_check_button_pressed(mb_left)
 );
 input_delay -= 1;

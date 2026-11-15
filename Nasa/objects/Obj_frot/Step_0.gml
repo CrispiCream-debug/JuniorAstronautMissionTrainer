@@ -1,3 +1,10 @@
+if (is_undefined(variable_instance_get(id, "talk_distance"))) {
+    talk_distance = 40;
+    talk_key = vk_enter;
+    player_near = false;
+    was_talking = false;
+}
+
 player_near = instance_exists(Obj_player)
     && point_distance(x, y, Obj_player.x, Obj_player.y) <= talk_distance;
 

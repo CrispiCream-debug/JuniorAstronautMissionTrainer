@@ -9,7 +9,10 @@
     "name":"evelyns",
     "path":"folders/objects/evelyns.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"Obj_info_item",
+    "path":"objects/Obj_info_item/Obj_info_item.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
