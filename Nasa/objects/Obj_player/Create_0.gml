@@ -5,6 +5,7 @@ move_speed = 3;
 hor = 0;
 ver = 0;
 facing = "up";
+in_dome = false;
 tilemap = layer_tilemap_get_id("col_tiles");
 
 function update_sprite() {

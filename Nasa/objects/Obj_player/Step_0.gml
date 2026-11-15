@@ -1,3 +1,5 @@
+in_dome = place_meeting(x, y, Obj_domo);
+
 // No moverse mientras alguien habla
 var _blocked = false;
 with (Obj_dialogue) {

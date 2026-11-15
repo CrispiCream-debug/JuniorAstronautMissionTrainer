@@ -9,7 +9,8 @@ if (_blocked) {
     exit;
 }
 
-clock += 1 / game_get_speed(gamespeed_fps);
+var _dt = 1 / game_get_speed(gamespeed_fps);
+clock += _dt;
 
 // Eventos que se detectan ahora
 while (next_index < array_length(events) && event_times[next_index] <= clock) {
@@ -30,6 +31,14 @@ for (var _i = array_length(impacts) - 1; _i >= 0; _i--) {
         array_delete(impacts, _i, 1);
         on_impact(_hit);
     }
+}
+
+// Dano por radiacion si el jugador esta fuera del domo y decaimiento gradual
+if (radiation > 0) {
+    if (instance_exists(Obj_player) && !Obj_player.in_dome) {
+        Obj_player.health_ = max(0, Obj_player.health_ - radiation * radiation_damage_scale * _dt);
+    }
+    radiation = max(0, radiation - radiation_decay_per_second * _dt);
 }
 
 // Fin del año: vuelve a enero sin avisar (casi nadie llega hasta aqui)
