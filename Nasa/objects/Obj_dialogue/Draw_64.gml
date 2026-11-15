@@ -4,6 +4,41 @@ if (!dialogue_initialized || array_length(pages) == 0) {
 
 var _layout = get_box_layout();
 
+// Foto real centrada encima de la caja, escalada para caber en el espacio libre
+if (photo != -1 && sprite_exists(photo)) {
+    var _img_w = sprite_get_width(photo);
+    var _img_h = sprite_get_height(photo);
+    var _margin = 24;
+    var _frame = 4;
+    var _max_w = display_get_gui_width() * 0.6;
+    var _max_h = _layout.y - _margin * 2;
+    var _img_scale = min(_max_w / _img_w, _max_h / _img_h);
+
+    if (_img_scale > 0) {
+        var _draw_w = _img_w * _img_scale;
+        var _draw_h = _img_h * _img_scale;
+        var _left = (display_get_gui_width() - _draw_w) * 0.5;
+        var _top = _layout.y - _margin - _draw_h;
+
+        var _prev_frame_color = draw_get_color();
+        draw_set_color(c_white);
+        draw_rectangle(_left - _frame, _top - _frame, _left + _draw_w + _frame, _top + _draw_h + _frame, false);
+        draw_set_color(_prev_frame_color);
+
+        draw_sprite_ext(
+            photo,
+            0,
+            _left + sprite_get_xoffset(photo) * _img_scale,
+            _top + sprite_get_yoffset(photo) * _img_scale,
+            _img_scale,
+            _img_scale,
+            0,
+            c_white,
+            1
+        );
+    }
+}
+
 draw_sprite_ext(
     Sp_dialogue,
     0,

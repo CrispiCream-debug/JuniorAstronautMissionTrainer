@@ -15,6 +15,11 @@ if (!variable_instance_exists(id, "blocking")) {
     blocking = true;
 }
 
+// Foto real que se muestra encima de la caja; -1 = sin imagen.
+if (!variable_instance_exists(id, "photo")) {
+    photo = -1;
+}
+
 // Ignora la tecla en el primer frame, para que la misma tecla que lo abrio no lo adelante
 input_delay = 1;
 
