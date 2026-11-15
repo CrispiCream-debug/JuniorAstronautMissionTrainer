@@ -35,7 +35,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.4.222",
+    "IDEVersion":"2026.0.0.16",
   },
   "name":"Nasa",
   "resources":[
@@ -49,7 +49,7 @@
     {"id":{"name":"Obj_frot","path":"objects/Obj_frot/Obj_frot.yy",},},
     {"id":{"name":"Obj_healthbar","path":"objects/Obj_healthbar/Obj_healthbar.yy",},},
     {"id":{"name":"Obj_lunar_rover","path":"objects/Obj_lunar_rover/Obj_lunar_rover.yy",},},
-    {"id":{"name":"Obj_panel","path":"objects/Obj_panel/Obj_panel.yy",},},
+    {"id":{"name":"Obj_panel_limpieza","path":"objects/Obj_panel_limpieza/Obj_panel_limpieza.yy",},},
     {"id":{"name":"Obj_player","path":"objects/Obj_player/Obj_player.yy",},},
     {"id":{"name":"Obj_retroflector","path":"objects/Obj_retroflector/Obj_retroflector.yy",},},
     {"id":{"name":"Obj_satelite_lro","path":"objects/Obj_satelite_lro/Obj_satelite_lro.yy",},},
