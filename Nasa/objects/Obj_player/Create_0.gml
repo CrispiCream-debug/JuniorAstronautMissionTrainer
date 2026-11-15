@@ -13,6 +13,9 @@ if (tilemap != -1) {
     array_push(movement_obstacles, tilemap);
 }
 selected_panel = noone;
+defeated = false;
+rescue_frot = noone;
+defeat_dialogue = noone;
 
 
 function update_sprite() {

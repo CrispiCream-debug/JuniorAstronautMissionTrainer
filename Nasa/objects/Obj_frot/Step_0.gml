@@ -1,3 +1,8 @@
+if (instance_exists(Obj_player) && Obj_player.health_ <= 0) {
+    player_near = false;
+    exit;
+}
+
 if (is_undefined(variable_instance_get(id, "talk_distance"))) {
     talk_distance = 40;
     talk_key = vk_enter;

@@ -28,6 +28,10 @@ if (title_active) {
 }
 
 // El tiempo se detiene mientras Frot habla
+if (instance_exists(Obj_player) && Obj_player.health_ <= 0) {
+    exit;
+}
+
 var _blocked = false;
 with (Obj_dialogue) {
     if (blocking) {
@@ -48,6 +52,7 @@ if (array_length(message_queue) > 0 && !instance_exists(Obj_dialogue)) {
 
 var _dt = 1 / game_get_speed(gamespeed_fps);
 clock += _dt;
+survival_seconds += _dt;
 
 // Eventos que se detectan ahora
 while (next_index < array_length(events) && event_times[next_index] <= clock) {

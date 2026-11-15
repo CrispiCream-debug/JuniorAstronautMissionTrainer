@@ -19,6 +19,7 @@ popup_seconds = 2.5;
 max_alerts_read = 2;
 
 clock = 0;                 // segundos de juego en esta vuelta al año
+survival_seconds = 0;      // tiempo acumulado de la partida, incluso si el año se reinicia
 next_index = 0;            // siguiente evento por salir
 impacts = [];              // { time, event }: eventos que vienen en camino a la base
 alerts = [];               // { time, event }: eventos importantes que Frot aun no lee
@@ -60,6 +61,7 @@ award_seconds = 4;
 title_active = true;
 
 // Musica: intro en el titulo, luego el tema; radiacion y apagon tienen su propia pista
+audio_stop_all();  // al reiniciar desde Game Over no queda musica de la partida anterior
 music_volume = 0.6;
 music_track = mus_intro;
 music_id = audio_play_sound(mus_intro, 10, true);

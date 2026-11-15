@@ -1,4 +1,4 @@
-if (!unlocked || info_text == "") {
+if (!unlocked || info_text == "" || (instance_exists(Obj_player) && Obj_player.health_ <= 0)) {
     player_near = false;
     exit;
 }

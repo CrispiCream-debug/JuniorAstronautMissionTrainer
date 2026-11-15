@@ -1,4 +1,8 @@
 // Si Frot no se ve en pantalla y tiene alertas, un "!" en el borde indica hacia donde esta
+if (instance_exists(Obj_player) && Obj_player.health_ <= 0) {
+    exit;
+}
+
 if (!instance_exists(Obj_space_weather) || array_length(Obj_space_weather.alerts) == 0) {
     exit;
 }
