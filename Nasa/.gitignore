@@ -60,3 +60,6 @@ Temporary Items
 
 # GMRT build directory
 Build
+
+# GameMaker auto-generated tileset previews
+output_tileset.png
