@@ -64,12 +64,17 @@ if (estado == "sucio") {
             }
             
             porcentaje_limpio = min(100, porcentaje_limpio + 0.6);
-            
+            play_sfx_once([snd_glass_clean_1, snd_glass_clean_2, snd_glass_clean_3, snd_glass_clean_4, snd_glass_clean_5], 0.7);
+
             if (porcentaje_limpio >= 100) {
                 estado = "listo";
                 abierto = false;
+                play_sfx(snd_success);
                 if (instance_exists(Obj_player)) {
                     Obj_player.energy_ = min(100, Obj_player.energy_ + 15);
+                }
+                if (instance_exists(Obj_space_weather)) {
+                    Obj_space_weather.unlock_award(Obj_box);  // premio: primer panel limpio
                 }
             }
         }
@@ -82,6 +87,7 @@ else if (estado == "roto") {
         for (var i = 0; i < 4; i++) {
             if (tornillos_puestos[i] && point_distance(mx, my, gui_x + tornillos_x[i], gui_y + tornillos_y[i]) < 15) {
                 tornillos_puestos[i] = false;
+                play_sfx([snd_screw_out_1, snd_screw_out_2, snd_screw_out_3, snd_screw_out_4]);
             }
         }
         if (!tornillos_puestos[0] && !tornillos_puestos[1] && !tornillos_puestos[2] && !tornillos_puestos[3]) fase = 1;
@@ -107,13 +113,18 @@ else if (estado == "roto") {
         for (var i = 0; i < 4; i++) {
             if (!tornillos_puestos[i] && point_distance(mx, my, gui_x + tornillos_x[i], gui_y + tornillos_y[i]) < 15) {
                 tornillos_puestos[i] = true;
+                play_sfx(snd_screw_in);
             }
         }
         if (tornillos_puestos[0] && tornillos_puestos[1] && tornillos_puestos[2] && tornillos_puestos[3]) {
             estado = "listo";
             abierto = false;
+            play_sfx(snd_success);
             if (instance_exists(Obj_player)) {
                 Obj_player.energy_ = min(100, Obj_player.energy_ + 20);
+            }
+            if (instance_exists(Obj_space_weather)) {
+                Obj_space_weather.unlock_award(Obj_lunar_rover);  // premio: primer panel reparado
             }
         }
     }

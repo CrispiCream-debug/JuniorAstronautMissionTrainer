@@ -67,6 +67,12 @@ var _remaining = floor(char_index);
 
 var _shadow_color = make_color_rgb(208, 208, 216);
 var _text_color = make_color_rgb(30, 30, 40);
+// Consejo de Frot: rojo y con "TIP:" para que no se pierda aunque no se lea todo
+var _is_tip = page_index < array_length(page_tips) && page_tips[page_index];
+if (_is_tip) {
+    _shadow_color = make_color_rgb(250, 200, 190);
+    _text_color = make_color_rgb(180, 30, 20);
+}
 var _shadow_offset = max(1, round(_layout.scale));
 
 for (var _i = 0; _i < array_length(_current_page); _i++) {

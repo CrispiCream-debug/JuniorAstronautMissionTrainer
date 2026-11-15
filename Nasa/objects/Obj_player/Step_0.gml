@@ -1,7 +1,7 @@
 in_dome = place_meeting(x, y, Obj_domo);
 
 // No moverse mientras alguien habla
-var _blocked = false;
+var _blocked = instance_exists(Obj_space_weather) && Obj_space_weather.title_active;
 with (Obj_dialogue) {
     if (blocking) {
         _blocked = true;
@@ -31,9 +31,12 @@ if (keyboard_check_pressed(ord("E"))) {
     // CASO A: No tiene batería -> Intenta agarrar una cercana
     if (bateria_cargada == noone) {
         var _bat = instance_nearest(x, y, Obj_battery_container);
-        if (_bat != noone && distance_to_object(_bat) < 16) {
+        // Solo se pueden cargar cuando Frot avisa de un apagon (o durante el apagon)
+        var _unlocked = instance_exists(Obj_space_weather) && Obj_space_weather.batteries_available();
+        if (_unlocked && _bat != noone && distance_to_object(_bat) < 16) {
             bateria_cargada = _bat;
             _bat.siendo_cargada = true;
+            play_sfx([snd_grab_1, snd_grab_2, snd_grab_3]);
         }
     } 
     // CASO B: Ya lleva una batería -> Revisa si está frente a Obj_console
@@ -46,6 +49,10 @@ if (keyboard_check_pressed(ord("E"))) {
 
             // Suma 1 al contador únicamente al entregarla en la consola
             baterias_recogidas += 1;
+            if (instance_exists(Obj_space_weather)) {
+                Obj_space_weather.deliver_battery();
+            }
+            play_sfx([snd_drop_1, snd_drop_2, snd_drop_3]);
 
             // Recarga la vida sin sobrepasar el máximo
             health_ = min(health_ + bateria_cargada.valor_energia, _vida_maxima);
@@ -60,6 +67,7 @@ if (keyboard_check_pressed(ord("E"))) {
         else {
             bateria_cargada.siendo_cargada = false;
             bateria_cargada = noone;
+            play_sfx([snd_drop_1, snd_drop_2, snd_drop_3], 0.6);
         }
     }
 }

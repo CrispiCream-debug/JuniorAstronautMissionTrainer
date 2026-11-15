@@ -21,17 +21,12 @@ tornillos_x = [15, ancho - 15, 15, ancho - 15];
 tornillos_y = [15, 15, alto - 15, alto - 15];
 tornillos_puestos = [true, true, true, true];
 
-// Temporizador para deterioro (60 pasos = 1 segundo aprox. Aquí son 30 segundos)
-alarm[0] = room_speed * irandom_range(20, 45);
 
 image_speed = 0;
 image_index = 0;
 estado = "listo";
 abierto = false;
-alarm[0] = room_speed * irandom_range(45, 90);
 
-// Cada panel tardará un tiempo distinto en empezar a ensuciarse (ej. entre 15 y 40 segundos)
-alarm[0] = room_speed * irandom_range(15, 40);
 
 // Dimensiones y variables de los minijuegos
 ancho = 220;
@@ -45,3 +40,23 @@ tornillos_x = [20, ancho - 20, 20, ancho - 20];
 tornillos_y = [20, 20, alto - 20, alto - 20];
 paneles_repuesto = 99;
 arrastrando_panel = false;
+// Ya no se danan al azar: Obj_space_weather llama esto cuando llega una llamarada o tormenta.
+// Limpio -> sucio; sucio (o _break) -> roto. Devuelve si cambio.
+function hit_by_sun(_break) {
+    if (abierto || estado == "roto") {
+        return false;
+    }
+    if (_break || estado == "sucio") {
+        estado = "roto";
+        fase = 0;
+        tornillos_puestos = [true, true, true, true];
+    } else {
+        estado = "sucio";
+        porcentaje_limpio = 0;
+        if (surface_exists(surf_suciedad)) {
+            surface_free(surf_suciedad);
+            surf_suciedad = -1;
+        }
+    }
+    return true;
+}

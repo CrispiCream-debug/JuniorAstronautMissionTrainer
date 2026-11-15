@@ -25,9 +25,45 @@ alerts = [];               // { time, event }: eventos importantes que Frot aun 
 explained_types = {};      // tipos que Frot ya explico (la analogia solo la primera vez)
 events_survived = 0;       // score
 
-// Radiacion ambiental en la base (escala 0-100, alimentada por radiation_points de cada impacto)
-radiation = 100;
-radiation_damage_scale = 0.08; // vida perdida por segundo por cada punto de radiacion
+important_survived = 0;    // eventos importantes que ya llegaron (para los premios)
+
+// Radiacion ambiental en la base (escala 0-100). Solo la suben las tormentas de particulas
+// y las llamaradas fuertes; dura unos segundos y vuelve a 0.
+radiation = 0;
+radiation_timer = 0;       // segundos que le quedan a la radiacion actual
+radiation_from_sep = false;
+radiation_seconds_sep = 30;
+radiation_seconds_flare = 10;
+radiation_damage_scale = 0.05; // vida perdida por segundo por cada punto de radiacion (fuera del domo)
+
+// Apagon: sin energia se apagan la calefaccion y las maquinas de aire. Se arregla con baterias.
+blackout = false;
+blackouts_coming = 0;      // apagones avisados que aun no llegan (desbloquean las baterias)
+batteries_needed = 3;
+batteries_delivered = 0;   // se pueden entregar antes del apagon para prevenirlo
+blackout_damage = 0.6;     // vida perdida por segundo durante el apagon
+dome_heal = 1;             // vida recuperada por segundo dentro del domo (si no hay apagon)
+blackout_explained = false;
+
+// Mensajes cortos (premios, apagon) que esperan a que no haya otro cuadro en pantalla
+message_queue = [];
+awards_given = {};
+told = [];                 // { time, event }: alertas que Frot ya conto (lista de proximos eventos)
+
+// Premios: texto blanco con contorno arriba de la pantalla (sin cuadro de dialogo)
+award_queue = [];
+award_text = "";
+award_timer = 0;
+award_seconds = 4;
+
+// Pantalla de titulo: todo esta congelado hasta presionar Enter
+title_active = true;
+
+// Musica: intro en el titulo, luego el tema; radiacion y apagon tienen su propia pista
+music_volume = 0.6;
+music_track = mus_intro;
+music_id = audio_play_sound(mus_intro, 10, true);
+audio_sound_gain(music_id, music_volume, 0);
 
 var _buffer = buffer_load("eventos_juego.json");
 var _data = json_parse(buffer_read(_buffer, buffer_text));
@@ -62,6 +98,17 @@ function is_important(_ev) {
     return _ev.blackout || _ev.type == "SEP" || _ev.radiation_points >= 10;
 }
 
+// Inicio: se salta el principio tranquilo del año para que la primera alerta llegue
+// despues de un rato corto para explorar el mapa
+first_alert_seconds = 15;
+for (var _i = 0; _i < array_length(events); _i++) {
+    if (is_important(events[_i])) {
+        clock = max(0, event_times[_i] - first_alert_seconds);
+        next_index = _i;  // los eventos menores de antes no hacen nada, se omiten
+        break;
+    }
+}
+
 function danger(_ev) {
     return _ev.radiation_points + (_ev.blackout ? 100 : 0);
 }
@@ -77,13 +124,161 @@ function show_alert_popup() {
     instance_create_depth(0, 0, 0, Obj_dialogue, { text: popup_text, auto_close: popup_seconds, blocking: false });
 }
 
+function queue_message(_text, _seconds) {
+    array_push(message_queue, { text: _text, seconds: _seconds });
+}
+
+// Premios: los objetos con foto empiezan desactivados (ver Obj_info_item) y aparecen al lograr algo
+function unlock_award(_obj) {
+    var _key = object_get_name(_obj);
+    if (variable_struct_exists(awards_given, _key)) {
+        return;
+    }
+    awards_given[$ _key] = true;
+    instance_activate_object(_obj);
+    var _title = "";
+    with (_obj) {
+        _title = info_title;
+    }
+    array_push(award_queue, _title == "" ? "You won a new object for the lunar base!"
+        : "You won a new object for the lunar base!\n" + _title);
+}
+
+// Eventos que suben la radiacion al llegar (tormentas de particulas y llamaradas fuertes)
+// Nombre corto para la lista de proximos eventos, con lo que provoca
+function event_label(_ev) {
+    var _name = _ev.name;
+    if (_ev.type == "SEP") {
+        _name = "Particle Storm";
+    } else if (_ev.type == "CME") {
+        _name = "Plasma Cloud (CME)";
+    }
+    if (_ev.blackout) {
+        _name += " - blackout";
+    } else if (raises_radiation(_ev)) {
+        _name += " - radiation";
+    }
+    return _name;
+}
+
+function raises_radiation(_ev) {
+    return _ev.type == "SEP" || (_ev.type == "FLR" && _ev.radiation_points >= 10);
+}
+
+function batteries_available() {
+    return blackout || blackouts_coming > 0;
+}
+
+function deliver_battery() {
+    batteries_delivered += 1;
+    if (blackout && batteries_delivered >= batteries_needed) {
+        end_blackout();
+    }
+}
+
+function start_blackout() {
+    if (blackout) {
+        return;
+    }
+    if (batteries_delivered >= batteries_needed) {
+        batteries_delivered -= batteries_needed;
+        queue_message("The Sun hit the power, but your spare batteries kept the lights on. Great job!", 4);
+        play_sfx(snd_success);
+        unlock_award(Obj_dish);
+        return;
+    }
+    blackout = true;
+    play_sfx(snd_fail);
+    queue_message("Blackout! The heaters and air machines stopped. Bring "
+        + string(batteries_needed - batteries_delivered) + " batteries to the console!", 4);
+}
+
+function end_blackout() {
+    blackout = false;
+    batteries_delivered = max(0, batteries_delivered - batteries_needed);
+    queue_message("Power is back! The heaters and air machines are working again.", 3);
+    play_sfx(snd_success);
+    unlock_award(Obj_dish);
+}
+
+// Un golpe del Sol a los paneles: los limpios se ensucian, los sucios (o con _break) se rompen
+function damage_panels(_count, _break) {
+    var _panels = [];
+    with (Obj_panel_limpieza) {
+        if (!abierto && estado != "roto") {
+            array_push(_panels, id);
+        }
+    }
+    for (var _i = 0; _i < min(_count, array_length(_panels)); _i++) {
+        var _pick = irandom_range(_i, array_length(_panels) - 1);
+        var _panel = _panels[_pick];
+        _panels[_pick] = _panels[_i];
+        with (_panel) {
+            hit_by_sun(_break);
+        }
+    }
+}
+
 // El evento llega a la base
 function on_impact(_ev) {
     events_survived += 1;
-    radiation = clamp(radiation + _ev.radiation_points, 0, 100);
-    // Aqui se conectan las misiones (paneles, apagon, zonas radiactivas, maquina de oxigeno)
-    // usando _ev.type, _ev.blackout y _ev.radiation_points.
-    show_debug_message("Impacto: " + _ev.id + " | Radiacion: " + string(radiation));
+    if (is_important(_ev)) {
+        important_survived += 1;
+        if (important_survived >= 10) {
+            unlock_award(Obj_suit);
+        }
+        if (important_survived >= 25) {
+            unlock_award(Obj_flag);
+        }
+    }
+
+    // Radiacion: tormentas de particulas y llamaradas fuertes
+    var _rad_seconds = 0;
+    if (_ev.type == "SEP") {
+        _rad_seconds = radiation_seconds_sep;
+        radiation_from_sep = true;
+    } else if (raises_radiation(_ev)) {
+        _rad_seconds = radiation_seconds_flare;
+    }
+    if (_rad_seconds > 0) {
+        if (radiation <= 0) {
+            play_sfx(snd_radioactive);
+        }
+        radiation = max(radiation, min(_ev.radiation_points, 100));
+        radiation_timer = max(radiation_timer, _rad_seconds);
+    }
+
+    // Paneles: el destello de una llamarada fuerte los ensucia; una tormenta que apaga la base rompe uno
+    if (_ev.type == "FLR" && _ev.radiation_points >= 10) {
+        damage_panels(irandom_range(1, 2), false);
+    } else if (_ev.type == "SEP" && _ev.blackout) {
+        damage_panels(1, true);
+    }
+
+    if (_ev.blackout) {
+        blackouts_coming = max(0, blackouts_coming - 1);
+        start_blackout();
+    }
+    show_debug_message("Impacto: " + _ev.id + " | Radiacion: " + string(radiation) + " | Apagon: " + string(blackout));
+}
+
+// Que hacer, en tono de sugerencia. Reemplaza dialog[1] del JSON (solo hay 5 textos distintos).
+function mission_tip(_ev) {
+    var _original = _ev.dialog[1];
+    switch (_original) {
+        case "Stay inside the base and keep away from radiation zones until it passes!":
+            return "I recommend you go inside the dome and stay there until the radiation passes.";
+        case "When it hits, the power will go out. Get the spare batteries ready!":
+            return "When it hits, the power will go out. I recommend you carry " + string(batteries_needed)
+                + " spare batteries to the console before it arrives, so the lights stay on.";
+        case "Radiation may come next. Get the base ready and stay close to it!":
+            return "Radiation may come next. I recommend you stay close to the dome.";
+        case "Its flash can harm the solar panels. Check them!":
+            return "Its flash can get the solar panels dirty. I recommend you check them after it hits.";
+        case "It is so strong it can break machines! Stay inside, keep away from radiation zones and check the oxygen machine.":
+            return "It is so strong it can break machines! I recommend you stay inside the dome, and then fix the broken solar panels.";
+    }
+    return _original;
 }
 
 // Lo que dice Frot cuando hablas con el. Vacia las alertas pendientes.
@@ -118,8 +313,14 @@ function take_alert_dialogue() {
             explained_types[$ _ev.type] = true;
             array_push(_lines, explanations[$ _ev.type]);
         }
-        array_push(_lines, _ev.dialog[1]);
+        if (_ev.blackout && !blackout_explained) {
+            blackout_explained = true;
+            array_push(_lines, "Without power, the heaters and air machines stop, and the Moon gets super cold!");
+        }
+        array_push(_lines, { text: "TIP: " + mission_tip(_ev), tip: true });
+        array_push(told, _upcoming[_i]);  // ahora sale en la lista de proximos eventos
     }
+    unlock_award(Obj_retroflector);  // primera vez que hablas con Frot
     if (array_length(_lines) == 0) {
         array_push(_lines, "The Sun is calm right now. I will tell you if anything is coming!");
     }

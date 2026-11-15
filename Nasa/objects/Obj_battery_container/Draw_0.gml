@@ -1,8 +1,12 @@
-// 1. Dibuja el sprite normal de la batería
-draw_self();
+// Bloqueada hasta que Frot avise de un apagon: se ve apagada y sin "[E]"
+var _unlocked = instance_exists(Obj_space_weather) && Obj_space_weather.batteries_available();
+
+// 1. Dibuja el sprite de la batería
+draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle,
+    _unlocked || siendo_cargada ? image_blend : c_gray, _unlocked || siendo_cargada ? image_alpha : 0.5);
 
 // 2. Si NO la están cargando y el jugador está cerca, dibuja "[E]" debajo
-if (!siendo_cargada && instance_exists(Obj_player)) {
+if (_unlocked && !siendo_cargada && instance_exists(Obj_player)) {
     if (point_distance(x, y, Obj_player.x, Obj_player.y) < 64) {
         
         // Guarda la alineación y color actuales para no afectar otros objetos

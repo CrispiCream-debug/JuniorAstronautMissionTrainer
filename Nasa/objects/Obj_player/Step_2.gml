@@ -20,6 +20,9 @@ with (Obj_panel_limpieza) {
 }
 
 selected_panel = panel_open ? noone : closest_panel;
+if (instance_exists(Obj_space_weather) && Obj_space_weather.title_active) {
+    selected_panel = noone;
+}
 if (selected_panel != noone && keyboard_check_pressed(ord("E"))) {
     selected_panel.abierto = true;
     selected_panel = noone;

@@ -1,8 +1,9 @@
 // Objetos con dato curioso: al acercarse y presionar E se abre un dialogo con la foto real encima
-// unlocked = false: bloqueado, no se dibuja ni se puede hablar con el (actua como si no existiera).
-// Por defecto esta desbloqueado; para bloquearlo pon unlocked = false (en el creation code del room o desde otro objeto).
+// Son premios: empiezan bloqueados y desactivados (no se dibujan ni chocan).
+// Obj_space_weather.unlock_award() los activa al lograr un hito.
+// Para dejar uno desbloqueado desde el inicio pon unlocked = true en el creation code del room.
 if (!variable_instance_exists(id, "unlocked")) {
-    unlocked = true;
+    unlocked = false;
 }
 
 talk_distance = 32;  // distancia desde el borde del sprite (1 tile), para que sirva con objetos grandes o detras de muros
@@ -50,4 +51,10 @@ switch (object_index) {
         info_text = "It was the first American flag placed on the Moon by astronauts! Neil Armstrong and Buzz Aldrin set it up during their historic mission.";
         info_image = Img_flag;
         break;
+}
+
+// Desactivado = bloqueado. Al reactivarse ya queda desbloqueado.
+if (!unlocked) {
+    unlocked = true;
+    instance_deactivate_object(id);
 }

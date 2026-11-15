@@ -29,18 +29,23 @@ line_sep_mult = 1.35;
 max_lines_per_page = 3;
 
 pages = [];
+page_tips = [];
 page_index = 0;
 char_index = 0;
 page_finished = false;
 dialogue_initialized = false;
 prev_text_key = "";
 
+// Una entrada puede ser { text, tip: true }: consejo de Frot, se dibuja con otro color (ver Draw GUI).
+// Guarda en page_tips si cada pagina es consejo.
 function wrap_text_to_pages(_raw_text, _max_width, _scale, _max_lines) {
     var _entries = is_array(_raw_text) ? _raw_text : [_raw_text];
     var _result_pages = [];
+    page_tips = [];
 
     for (var _e = 0; _e < array_length(_entries); _e++) {
-        var _entry = string(_entries[_e]);
+        var _is_tip = is_struct(_entries[_e]) && variable_struct_exists(_entries[_e], "tip") && _entries[_e].tip;
+        var _entry = is_struct(_entries[_e]) ? string(_entries[_e].text) : string(_entries[_e]);
         var _paragraphs = string_split(_entry, "\n");
         var _wrapped_lines = [];
 
@@ -73,6 +78,7 @@ function wrap_text_to_pages(_raw_text, _max_width, _scale, _max_lines) {
 
         if (array_length(_wrapped_lines) == 0) {
             array_push(_result_pages, [""]);
+            array_push(page_tips, _is_tip);
             continue;
         }
 
@@ -83,6 +89,7 @@ function wrap_text_to_pages(_raw_text, _max_width, _scale, _max_lines) {
                 array_push(_page_lines, _wrapped_lines[_j]);
             }
             array_push(_result_pages, _page_lines);
+            array_push(page_tips, _is_tip);
         }
     }
 
