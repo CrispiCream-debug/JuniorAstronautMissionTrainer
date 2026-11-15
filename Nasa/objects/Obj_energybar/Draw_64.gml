@@ -14,5 +14,7 @@ if (instance_exists(Obj_player)) {
         _frame = 4; // 0% (barra completamente vacía)
     }
 
-    draw_sprite_ext(Sp_energybar, _frame, 40, 100, 2.5, 2.5, 0, c_white, 1);
+    var _scale = 2.5;
+    var _left_x = 10 + sprite_get_xoffset(Sp_energybar) * _scale;
+    draw_sprite_ext(Sp_energybar, _frame, _left_x, 100, _scale, _scale, 0, c_white, 1);
 }
