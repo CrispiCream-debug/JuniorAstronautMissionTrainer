@@ -5,6 +5,19 @@ if (!variable_instance_exists(id, "text")) {
     ];
 }
 
+// Segundos antes de cerrarse solo; -1 = espera a que el jugador lo cierre.
+if (!variable_instance_exists(id, "auto_close")) {
+    auto_close = -1;
+}
+
+// Si bloquea, el jugador no se mueve y el reloj del Sol se detiene mientras esta abierto.
+if (!variable_instance_exists(id, "blocking")) {
+    blocking = true;
+}
+
+// Ignora la tecla en el primer frame, para que la misma tecla que lo abrio no lo adelante
+input_delay = 1;
+
 text_speed = 0.65;
 text_scale = 1.6;
 line_sep_mult = 1.35;

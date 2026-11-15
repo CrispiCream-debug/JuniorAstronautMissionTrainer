@@ -1,3 +1,11 @@
+if (auto_close > 0) {
+    auto_close -= 1 / game_get_speed(gamespeed_fps);
+    if (auto_close <= 0) {
+        instance_destroy();
+        exit;
+    }
+}
+
 if (!dialogue_initialized || string(text) != prev_text_key) {
     rebuild_dialogue();
 }
@@ -12,10 +20,13 @@ for (var _i = 0; _i < array_length(_current_page); _i++) {
     _total_chars += string_length(_current_page[_i]);
 }
 
-var _advance_pressed = keyboard_check_pressed(vk_space)
+var _advance_pressed = input_delay <= 0 && (
+    keyboard_check_pressed(vk_space)
     || keyboard_check_pressed(vk_enter)
     || keyboard_check_pressed(ord("Z"))
-    || mouse_check_button_pressed(mb_left);
+    || mouse_check_button_pressed(mb_left)
+);
+input_delay -= 1;
 
 if (!page_finished) {
     if (_advance_pressed) {
