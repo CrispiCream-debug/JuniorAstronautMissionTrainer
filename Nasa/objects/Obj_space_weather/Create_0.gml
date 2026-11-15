@@ -25,6 +25,10 @@ alerts = [];               // { time, event }: eventos importantes que Frot aun 
 explained_types = {};      // tipos que Frot ya explico (la analogia solo la primera vez)
 events_survived = 0;       // score
 
+// Radiacion ambiental en la base (escala 0-100, alimentada por radiation_points de cada impacto)
+radiation = 100;
+radiation_damage_scale = 0.08; // vida perdida por segundo por cada punto de radiacion
+
 var _buffer = buffer_load("eventos_juego.json");
 var _data = json_parse(buffer_read(_buffer, buffer_text));
 buffer_delete(_buffer);
@@ -76,9 +80,10 @@ function show_alert_popup() {
 // El evento llega a la base
 function on_impact(_ev) {
     events_survived += 1;
+    radiation = clamp(radiation + _ev.radiation_points, 0, 100);
     // Aqui se conectan las misiones (paneles, apagon, zonas radiactivas, maquina de oxigeno)
     // usando _ev.type, _ev.blackout y _ev.radiation_points.
-    show_debug_message("Impacto: " + _ev.id);
+    show_debug_message("Impacto: " + _ev.id + " | Radiacion: " + string(radiation));
 }
 
 // Lo que dice Frot cuando hablas con el. Vacia las alertas pendientes.

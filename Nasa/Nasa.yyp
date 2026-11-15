@@ -35,7 +35,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2026.0.0.16",
+    "IDEVersion":"2024.14.4.222",
   },
   "name":"Nasa",
   "resources":[
@@ -51,6 +51,7 @@
     {"id":{"name":"Obj_lunar_rover","path":"objects/Obj_lunar_rover/Obj_lunar_rover.yy",},},
     {"id":{"name":"Obj_panel_limpieza","path":"objects/Obj_panel_limpieza/Obj_panel_limpieza.yy",},},
     {"id":{"name":"Obj_player","path":"objects/Obj_player/Obj_player.yy",},},
+    {"id":{"name":"Obj_radiation","path":"objects/Obj_radiation/Obj_radiation.yy",},},
     {"id":{"name":"Obj_retroflector","path":"objects/Obj_retroflector/Obj_retroflector.yy",},},
     {"id":{"name":"Obj_satelite_lro","path":"objects/Obj_satelite_lro/Obj_satelite_lro.yy",},},
     {"id":{"name":"Obj_ship","path":"objects/Obj_ship/Obj_ship.yy",},},
@@ -80,6 +81,7 @@
     {"id":{"name":"Sp_healthbar","path":"sprites/Sp_healthbar/Sp_healthbar.yy",},},
     {"id":{"name":"Sp_lunar_rover","path":"sprites/Sp_lunar_rover/Sp_lunar_rover.yy",},},
     {"id":{"name":"Sp_panel","path":"sprites/Sp_panel/Sp_panel.yy",},},
+    {"id":{"name":"Sp_radiation","path":"sprites/Sp_radiation/Sp_radiation.yy",},},
     {"id":{"name":"Sp_retroflector","path":"sprites/Sp_retroflector/Sp_retroflector.yy",},},
     {"id":{"name":"Sp_road","path":"sprites/Sp_road/Sp_road.yy",},},
     {"id":{"name":"Sp_satelite_lro","path":"sprites/Sp_satelite_lro/Sp_satelite_lro.yy",},},
