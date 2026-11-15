@@ -36,6 +36,7 @@
     {"id":{"name":"Obj_frot","path":"objects/Obj_frot/Obj_frot.yy",},},
     {"id":{"name":"Obj_player","path":"objects/Obj_player/Obj_player.yy",},},
     {"id":{"name":"beta_room","path":"rooms/beta_room/beta_room.yy",},},
+    {"id":{"name":"background","path":"sprites/background/background.yy",},},
     {"id":{"name":"frot_down_iddle","path":"sprites/frot_down_iddle/frot_down_iddle.yy",},},
     {"id":{"name":"frot_down_move","path":"sprites/frot_down_move/frot_down_move.yy",},},
     {"id":{"name":"frot_left_iddle","path":"sprites/frot_left_iddle/frot_left_iddle.yy",},},
