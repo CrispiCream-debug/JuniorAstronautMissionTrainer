@@ -3,6 +3,7 @@ energy_ = 100;
 health_ = 100;
 move_speed = 3;
 hor = 0;
+baterias_recogidas = 0; 
 ver = 0;
 facing = "up";
 in_dome = false;
@@ -29,4 +30,12 @@ function update_sprite() {
             break;
     }
 }
+
+// Variables de movimiento
+vel_normal = move_speed; // Misma velocidad que antes (3)
+vel_cargando = move_speed * 0.55; // ~45% más lento cargando la batería (1.65)
+vel_actual = vel_normal;
+
+// Estado de carga
+bateria_cargada = noone; // Guardará el ID de la batería que lleva
 

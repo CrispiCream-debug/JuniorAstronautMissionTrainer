@@ -40,6 +40,7 @@
   },
   "name":"Nasa",
   "resources":[
+    {"id":{"name":"Obj_battery_container","path":"objects/Obj_battery_container/Obj_battery_container.yy",},},
     {"id":{"name":"Obj_box","path":"objects/Obj_box/Obj_box.yy",},},
     {"id":{"name":"Obj_camera","path":"objects/Obj_camera/Obj_camera.yy",},},
     {"id":{"name":"Obj_console","path":"objects/Obj_console/Obj_console.yy",},},
@@ -81,7 +82,6 @@
     {"id":{"name":"Img_retroreflector","path":"sprites/Img_retroreflector/Img_retroreflector.yy",},},
     {"id":{"name":"Img_satelite_lro","path":"sprites/Img_satelite_lro/Img_satelite_lro.yy",},},
     {"id":{"name":"Img_suit","path":"sprites/Img_suit/Img_suit.yy",},},
-    {"id":{"name":"Obj_battery_container","path":"sprites/Obj_battery_container/Obj_battery_container.yy",},},
     {"id":{"name":"placeholder_tile","path":"sprites/placeholder_tile/placeholder_tile.yy",},},
     {"id":{"name":"placeholderBG","path":"sprites/placeholderBG/placeholderBG.yy",},},
     {"id":{"name":"Sp_box","path":"sprites/Sp_box/Sp_box.yy",},},
@@ -99,6 +99,7 @@
     {"id":{"name":"Sp_satelite_lro","path":"sprites/Sp_satelite_lro/Sp_satelite_lro.yy",},},
     {"id":{"name":"Sp_ship","path":"sprites/Sp_ship/Sp_ship.yy",},},
     {"id":{"name":"Sp_suit","path":"sprites/Sp_suit/Sp_suit.yy",},},
+    {"id":{"name":"Spr_battery_container","path":"sprites/Spr_battery_container/Spr_battery_container.yy",},},
     {"id":{"name":"Sprite35","path":"sprites/Sprite35/Sprite35.yy",},},
     {"id":{"name":"tabo_down_iddle","path":"sprites/tabo_down_iddle/tabo_down_iddle.yy",},},
     {"id":{"name":"tabo_down_move","path":"sprites/tabo_down_move/tabo_down_move.yy",},},
