@@ -7,6 +7,7 @@ ver = 0;
 facing = "up";
 tilemap = layer_tilemap_get_id("col_tiles");
 
+
 function update_sprite() {
     var moving = (hor != 0 || ver != 0);
     switch (facing) {

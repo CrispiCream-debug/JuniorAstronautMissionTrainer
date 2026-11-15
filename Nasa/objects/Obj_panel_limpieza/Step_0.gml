@@ -1,13 +1,43 @@
-// 1. RECARGAR ENERGÍA DEL JUGADOR SI EL PANEL ESTÁ LIMPIO
-if (estado == "listo" && instance_exists(Obj_player)) {
-    // Cada panel limpio regenera energía poco a poco hasta un máximo de 100
-    Obj_player.energy_ = min(100, Obj_player.energy_ + 0.03);
+// 1. ACTUALIZAR FRAME FÍSICO Y MODIFICAR ENERGÍA SEGÚN EL ESTADO DE ESTE PANEL
+if (estado == "listo") {
+    image_index = 0; // Frame limpio
+    if (instance_exists(Obj_player)) {
+        Obj_player.energy_ = min(100, Obj_player.energy_ + 0.001);
+    }
+} 
+else if (estado == "sucio") {
+    image_index = 1; // Frame sucio
+    if (instance_exists(Obj_player)) {
+        Obj_player.energy_ = max(0, Obj_player.energy_ - 0.0015);
+    }
+} 
+else if (estado == "roto") {
+    image_index = 2; // Frame roto
+    if (instance_exists(Obj_player)) {
+        Obj_player.energy_ = max(0, Obj_player.energy_ - 0.003);
+    }
 }
 
-// 2. DETECTAR SI EL JUGADOR SE ACERCA Y PRESIONA "E"
+// Asignar el frame exacto del sprite según su estado
+// (Ajusta 0, 1, 2 si el orden de tus sub-imágenes es diferente)
+if (estado == "listo") {
+    image_index = 0; // Frame limpio
+} else if (estado == "sucio") {
+    image_index = 1; // Frame sucio
+} else if (estado == "roto") {
+    image_index = 2; // Frame roto
+}
+
+// Recargar energía pasivamente si el panel está limpio
+if (estado == "listo" && instance_exists(Obj_player)) {
+    Obj_player.energy_ = min(100, Obj_player.energy_ + 0.005);
+}
+
+// 2. DETECTAR SI EL JUGADOR SE ACERCA AL PANEL MÁS CERCANO Y PRESIONA "E"
 if (!abierto) {
-    if (instance_exists(Obj_player) && point_distance(x, y, Obj_player.x, Obj_player.y) < 60) {
-        if (keyboard_check_pressed(ord("E")) && estado != "listo") {
+    if (instance_exists(Obj_player) && point_distance(x, y, Obj_player.x, Obj_player.y) < 42) {
+        var mas_cercano = instance_nearest(Obj_player.x, Obj_player.y, object_index);
+        if (mas_cercano == id && keyboard_check_pressed(ord("E")) && estado != "listo") {
             var otro_abierto = false;
             with (object_index) {
                 if (abierto) otro_abierto = true;
@@ -45,16 +75,14 @@ if (estado == "sucio") {
                 surface_reset_target();
             }
             
-            // Gastar un poco de energía al limpiar
-            if (instance_exists(Obj_player)) {
-                Obj_player.energy_ = max(0, Obj_player.energy_ - 0.05);
-            }
-            
             porcentaje_limpio = min(100, porcentaje_limpio + 0.6);
             
             if (porcentaje_limpio >= 100) {
                 estado = "listo";
                 abierto = false;
+                if (instance_exists(Obj_player)) {
+                    Obj_player.energy_ = min(100, Obj_player.energy_ + 15);
+                }
             }
         }
     }
@@ -66,9 +94,6 @@ else if (estado == "roto") {
         for (var i = 0; i < 4; i++) {
             if (tornillos_puestos[i] && point_distance(mx, my, gui_x + tornillos_x[i], gui_y + tornillos_y[i]) < 15) {
                 tornillos_puestos[i] = false;
-                if (instance_exists(Obj_player)) {
-                    Obj_player.energy_ = max(0, Obj_player.energy_ - 1);
-                }
             }
         }
         if (!tornillos_puestos[0] && !tornillos_puestos[1] && !tornillos_puestos[2] && !tornillos_puestos[3]) fase = 1;
@@ -94,14 +119,14 @@ else if (estado == "roto") {
         for (var i = 0; i < 4; i++) {
             if (!tornillos_puestos[i] && point_distance(mx, my, gui_x + tornillos_x[i], gui_y + tornillos_y[i]) < 15) {
                 tornillos_puestos[i] = true;
-                if (instance_exists(Obj_player)) {
-                    Obj_player.energy_ = max(0, Obj_player.energy_ - 1);
-                }
             }
         }
         if (tornillos_puestos[0] && tornillos_puestos[1] && tornillos_puestos[2] && tornillos_puestos[3]) {
             estado = "listo";
             abierto = false;
+            if (instance_exists(Obj_player)) {
+                Obj_player.energy_ = min(100, Obj_player.energy_ + 20);
+            }
         }
     }
 }

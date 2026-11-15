@@ -12,6 +12,11 @@ if (_blocked) {
     exit;
 }
 
+// La energía baja constantemente sola
+if (instance_exists(Obj_player)) {
+  //  Obj_player.energy_ = max(0, Obj_player.energy_ - 0.005);
+}
+
 hor = (keyboard_check(ord("D")) || keyboard_check(vk_right))
     - (keyboard_check(ord("A")) || keyboard_check(vk_left));
 
@@ -23,6 +28,12 @@ if (hor != 0 || ver != 0) {
     var len = point_distance(0, 0, hor, ver);
     hor /= len;
     ver /= len;
+	
+	
+	// Gasto constante de energía del jugador (aprox. 1.5 puntos por segundo)
+if (instance_exists(Obj_player)) {
+    Obj_player.energy_ = max(0, Obj_player.energy_ - 0.025);
+}
 
     
 var mov_x = hor * move_speed;
@@ -53,6 +64,11 @@ var mov_y = ver * move_speed;
         }
     }
 }
+
+
+
+
+
 
 update_sprite();
 
