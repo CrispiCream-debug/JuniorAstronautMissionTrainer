@@ -20,6 +20,13 @@ if (!variable_instance_exists(id, "photo")) {
     photo = -1;
 }
 
+// Solo un cuadro a la vez: el nuevo reemplaza al anterior (evita textos encimados)
+with (Obj_dialogue) {
+    if (id != other.id) {
+        instance_destroy();
+    }
+}
+
 // Ignora la tecla en el primer frame, para que la misma tecla que lo abrio no lo adelante
 input_delay = 1;
 
@@ -108,8 +115,11 @@ function get_box_layout() {
     var _box_x = (_gui_w - _box_w) * 0.5;
     var _box_y = _gui_h - _box_h - 24;
 
-    var _pad_x = 34 * _scale;
-    var _pad_y = 28 * _scale;
+    // Margenes del sprite Sp_dialogue (640x188): el logo de la NASA ocupa la esquina superior izquierda
+    var _pad_left = 88 * _scale;
+    var _pad_right = 40 * _scale;
+    var _pad_top = 36 * _scale;
+    var _pad_bottom = 28 * _scale;
 
     return {
         scale: _scale,
@@ -117,10 +127,10 @@ function get_box_layout() {
         y: _box_y,
         w: _box_w,
         h: _box_h,
-        text_x: _box_x + _pad_x,
-        text_y: _box_y + _pad_y,
-        text_w: _box_w - (_pad_x * 2),
-        text_h: _box_h - (_pad_y * 2)
+        text_x: _box_x + _pad_left,
+        text_y: _box_y + _pad_top,
+        text_w: _box_w - _pad_left - _pad_right,
+        text_h: _box_h - _pad_top - _pad_bottom
     };
 }
 
