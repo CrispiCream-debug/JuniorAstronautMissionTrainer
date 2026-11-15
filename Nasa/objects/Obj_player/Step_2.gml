@@ -1,3 +1,5 @@
-with(all){
-    depth = -bbox_bottom;
+with (all) {
+    if (object_index != Obj_domo) {
+        depth = -bbox_bottom;
+    }
 }

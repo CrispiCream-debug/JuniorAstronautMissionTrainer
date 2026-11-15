@@ -1,4 +1,4 @@
-camera_zoom = 1.8;
+camera_zoom = 2;
 camera_sky_offset_ratio = 1 / 6;
 
 function follow_player() {
