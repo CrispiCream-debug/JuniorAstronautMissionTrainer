@@ -5,7 +5,12 @@ move_speed = 3;
 hor = 0;
 ver = 0;
 facing = "up";
-tilemap = layer_tilemap_get_id("col_tiles");
+var tilemap = layer_tilemap_get_id("col_tiles");
+movement_obstacles = [Obj_solid_prop];
+if (tilemap != -1) {
+    array_push(movement_obstacles, tilemap);
+}
+selected_panel = noone;
 
 function update_sprite() {
     var moving = (hor != 0 || ver != 0);

@@ -4,19 +4,8 @@ if (estado == "listo" && instance_exists(Obj_player)) {
     Obj_player.energy_ = min(100, Obj_player.energy_ + 0.03);
 }
 
-// 2. DETECTAR SI EL JUGADOR SE ACERCA Y PRESIONA "E"
+// 2. El jugador abre el panel seleccionado desde su End Step.
 if (!abierto) {
-    if (instance_exists(Obj_player) && point_distance(x, y, Obj_player.x, Obj_player.y) < 60) {
-        if (keyboard_check_pressed(ord("E")) && estado != "listo") {
-            var otro_abierto = false;
-            with (object_index) {
-                if (abierto) otro_abierto = true;
-            }
-            if (!otro_abierto) {
-                abierto = true;
-            }
-        }
-    }
     exit;
 }
 

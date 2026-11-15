@@ -1,3 +1,7 @@
+if (player_near) {
+    draw_interaction_outline();
+}
+
 draw_self();
 
 if (!instance_exists(Obj_space_weather) || array_length(Obj_space_weather.alerts) == 0) {

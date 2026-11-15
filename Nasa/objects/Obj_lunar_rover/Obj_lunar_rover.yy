@@ -9,7 +9,10 @@
     "name":"evelyns",
     "path":"folders/objects/evelyns.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"Obj_solid_prop",
+    "path":"objects/Obj_solid_prop/Obj_solid_prop.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -26,7 +29,7 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":false,
+  "solid":true,
   "spriteId":{
     "name":"Sp_lunar_rover",
     "path":"sprites/Sp_lunar_rover/Sp_lunar_rover.yy",

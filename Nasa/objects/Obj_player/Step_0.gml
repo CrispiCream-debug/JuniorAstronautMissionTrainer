@@ -29,12 +29,12 @@ var mov_x = hor * move_speed;
 var mov_y = ver * move_speed;
 
     // Colisión horizontal
-    if (!place_meeting(x + mov_x, y, tilemap)) {
+    if (!place_meeting(x + mov_x, y, movement_obstacles)) {
         x += mov_x;
     }
     
     // Colisión vertical
-    if (!place_meeting(x, y + mov_y, tilemap)) {
+    if (!place_meeting(x, y + mov_y, movement_obstacles)) {
         y += mov_y;
     }
 

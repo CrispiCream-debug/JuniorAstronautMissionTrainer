@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"Sh_interaction_outline",
+  "name":"Sh_interaction_outline",
+  "parent":{
+    "name":"Nasa",
+    "path":"Nasa.yyp",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}
