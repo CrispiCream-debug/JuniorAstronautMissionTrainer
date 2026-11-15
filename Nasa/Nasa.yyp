@@ -1,363 +1,83 @@
 {
-  "$GMProject": "v1",
-  "%Name": "Nasa",
-  "AudioGroups": [
-    {
-      "$GMAudioGroup": "v1",
-      "%Name": "audiogroup_default",
-      "exportDir": "",
-      "name": "audiogroup_default",
-      "resourceType": "GMAudioGroup",
-      "resourceVersion": "2.0",
-      "targets": -1
-    }
+  "$GMProject":"v1",
+  "%Name":"Nasa",
+  "AudioGroups":[
+    {"$GMAudioGroup":"v1","%Name":"audiogroup_default","exportDir":"","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
   ],
-  "configs": {
-    "children": [],
-    "name": "Default"
+  "configs":{
+    "children":[],
+    "name":"Default",
   },
-  "defaultScriptType": 0,
-  "Folders": [
-    {
-      "$GMFolder": "",
-      "%Name": "objects",
-      "folderPath": "folders/objects.yy",
-      "name": "objects",
-      "resourceType": "GMFolder",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMFolder": "",
-      "%Name": "evelyns",
-      "folderPath": "folders/objects/evelyns.yy",
-      "name": "evelyns",
-      "resourceType": "GMFolder",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMFolder": "",
-      "%Name": "Rooms",
-      "folderPath": "folders/Rooms.yy",
-      "name": "Rooms",
-      "resourceType": "GMFolder",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMFolder": "",
-      "%Name": "sprites",
-      "folderPath": "folders/sprites.yy",
-      "name": "sprites",
-      "resourceType": "GMFolder",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMFolder": "",
-      "%Name": "backgrounds",
-      "folderPath": "folders/sprites/backgrounds.yy",
-      "name": "backgrounds",
-      "resourceType": "GMFolder",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMFolder": "",
-      "%Name": "frot",
-      "folderPath": "folders/sprites/frot.yy",
-      "name": "frot",
-      "resourceType": "GMFolder",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMFolder": "",
-      "%Name": "iddle",
-      "folderPath": "folders/sprites/frot/iddle.yy",
-      "name": "iddle",
-      "resourceType": "GMFolder",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMFolder": "",
-      "%Name": "move",
-      "folderPath": "folders/sprites/frot/move.yy",
-      "name": "move",
-      "resourceType": "GMFolder",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMFolder": "",
-      "%Name": "sprites_evelyns",
-      "folderPath": "folders/sprites/sprites_evelyns.yy",
-      "name": "sprites_evelyns",
-      "resourceType": "GMFolder",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMFolder": "",
-      "%Name": "move",
-      "folderPath": "folders/sprites/frot/move.yy",
-      "name": "move",
-      "resourceType": "GMFolder",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMFolder": "",
-      "%Name": "HUD",
-      "folderPath": "folders/sprites/HUD.yy",
-      "name": "HUD",
-      "resourceType": "GMFolder",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMFolder": "",
-      "%Name": "sprite_tiles",
-      "folderPath": "folders/sprites/sprite_tiles.yy",
-      "name": "sprite_tiles",
-      "resourceType": "GMFolder",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMFolder": "",
-      "%Name": "tabo",
-      "folderPath": "folders/sprites/tabo.yy",
-      "name": "tabo",
-      "resourceType": "GMFolder",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMFolder": "",
-      "%Name": "iddle",
-      "folderPath": "folders/sprites/tabo/iddle.yy",
-      "name": "iddle",
-      "resourceType": "GMFolder",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMFolder": "",
-      "%Name": "move",
-      "folderPath": "folders/sprites/tabo/move.yy",
-      "name": "move",
-      "resourceType": "GMFolder",
-      "resourceVersion": "2.0"
-    },
-    {
-      "$GMFolder": "",
-      "%Name": "tiles",
-      "folderPath": "folders/tiles.yy",
-      "name": "tiles",
-      "resourceType": "GMFolder",
-      "resourceVersion": "2.0"
-    }
+  "defaultScriptType":0,
+  "Folders":[
+    {"$GMFolder":"","%Name":"objects","folderPath":"folders/objects.yy","name":"objects","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"evelyns","folderPath":"folders/objects/evelyns.yy","name":"evelyns","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Rooms","folderPath":"folders/Rooms.yy","name":"Rooms","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"sprites","folderPath":"folders/sprites.yy","name":"sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"backgrounds","folderPath":"folders/sprites/backgrounds.yy","name":"backgrounds","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"frot","folderPath":"folders/sprites/frot.yy","name":"frot","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"iddle","folderPath":"folders/sprites/frot/iddle.yy","name":"iddle","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"move","folderPath":"folders/sprites/frot/move.yy","name":"move","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"HUD","folderPath":"folders/sprites/HUD.yy","name":"HUD","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"sprite_tiles","folderPath":"folders/sprites/sprite_tiles.yy","name":"sprite_tiles","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"sprites_evelyns","folderPath":"folders/sprites/sprites_evelyns.yy","name":"sprites_evelyns","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"tabo","folderPath":"folders/sprites/tabo.yy","name":"tabo","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"iddle","folderPath":"folders/sprites/tabo/iddle.yy","name":"iddle","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"move","folderPath":"folders/sprites/tabo/move.yy","name":"move","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"tiles","folderPath":"folders/tiles.yy","name":"tiles","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
-  "ForcedPrefabProjectReferences": [],
-  "IncludedFiles": [],
-  "isEcma": false,
-  "LibraryEmitters": [],
-  "MetaData": {
-    "IDEVersion": "2024.14.4.222"
+  "ForcedPrefabProjectReferences":[],
+  "IncludedFiles":[],
+  "isEcma":false,
+  "LibraryEmitters":[],
+  "MetaData":{
+    "IDEVersion":"2024.14.4.222",
   },
-  "name": "Nasa",
-  "resources": [
-    {
-      "id": { "name": "Obj_camera", "path": "objects/Obj_camera/Obj_camera.yy" }
-    },
-    {
-      "id": {
-        "name": "Obj_energybar",
-        "path": "objects/Obj_energybar/Obj_energybar.yy"
-      }
-    },
-    { "id": { "name": "Obj_frot", "path": "objects/Obj_frot/Obj_frot.yy" } },
-    {
-      "id": {
-        "name": "Obj_lunar_rover",
-        "path": "objects/Obj_lunar_rover/Obj_lunar_rover.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "Obj_healthbar",
-        "path": "objects/Obj_healthbar/Obj_healthbar.yy"
-      }
-    },
-    {
-      "id": { "name": "Obj_player", "path": "objects/Obj_player/Obj_player.yy" }
-    },
-    {
-      "id": {
-        "name": "Obj_satelite_lro",
-        "path": "objects/Obj_satelite_lro/Obj_satelite_lro.yy"
-      }
-    },
-    { "id": { "name": "Obj_ship", "path": "objects/Obj_ship/Obj_ship.yy" } },
-    { "id": { "name": "beta_room", "path": "rooms/beta_room/beta_room.yy" } },
-    {
-      "id": { "name": "background", "path": "sprites/background/background.yy" }
-    },
-    {
-      "id": {
-        "name": "frot_down_iddle",
-        "path": "sprites/frot_down_iddle/frot_down_iddle.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "frot_down_move",
-        "path": "sprites/frot_down_move/frot_down_move.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "frot_left_iddle",
-        "path": "sprites/frot_left_iddle/frot_left_iddle.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "frot_left_move",
-        "path": "sprites/frot_left_move/frot_left_move.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "frot_right_iddle",
-        "path": "sprites/frot_right_iddle/frot_right_iddle.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "frot_right_move",
-        "path": "sprites/frot_right_move/frot_right_move.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "frot_up_iddle",
-        "path": "sprites/frot_up_iddle/frot_up_iddle.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "frot_up_move",
-        "path": "sprites/frot_up_move/frot_up_move.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "placeholder_tile",
-        "path": "sprites/placeholder_tile/placeholder_tile.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "placeholderBG",
-        "path": "sprites/placeholderBG/placeholderBG.yy"
-      }
-    },
-    { "id": { "name": "Sp_dish", "path": "sprites/Sp_dish/Sp_dish.yy" } },
-    {
-      "id": {
-        "name": "Sp_lunar_rover",
-        "path": "sprites/Sp_lunar_rover/Sp_lunar_rover.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "Sp_satelite_lro",
-        "path": "sprites/Sp_satelite_lro/Sp_satelite_lro.yy"
-      }
-    },
-    { "id": { "name": "Sp_ship", "path": "sprites/Sp_ship/Sp_ship.yy" } },
-    {
-      "id": {
-        "name": "Sp_energybar",
-        "path": "sprites/Sp_energybar/Sp_energybar.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "Sp_healthbar",
-        "path": "sprites/Sp_healthbar/Sp_healthbar.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "tabo_down_iddle",
-        "path": "sprites/tabo_down_iddle/tabo_down_iddle.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "tabo_down_move",
-        "path": "sprites/tabo_down_move/tabo_down_move.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "tabo_left_iddle",
-        "path": "sprites/tabo_left_iddle/tabo_left_iddle.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "tabo_left_move",
-        "path": "sprites/tabo_left_move/tabo_left_move.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "tabo_right_iddle",
-        "path": "sprites/tabo_right_iddle/tabo_right_iddle.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "tabo_right_move",
-        "path": "sprites/tabo_right_move/tabo_right_move.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "tabo_up_iddle",
-        "path": "sprites/tabo_up_iddle/tabo_up_iddle.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "tabo_up_move",
-        "path": "sprites/tabo_up_move/tabo_up_move.yy"
-      }
-    },
-    {
-      "id": {
-        "name": "placeholder",
-        "path": "tilesets/placeholder/placeholder.yy"
-      }
-    }
+  "name":"Nasa",
+  "resources":[
+    {"id":{"name":"Obj_camera","path":"objects/Obj_camera/Obj_camera.yy",},},
+    {"id":{"name":"Obj_energybar","path":"objects/Obj_energybar/Obj_energybar.yy",},},
+    {"id":{"name":"Obj_frot","path":"objects/Obj_frot/Obj_frot.yy",},},
+    {"id":{"name":"Obj_healthbar","path":"objects/Obj_healthbar/Obj_healthbar.yy",},},
+    {"id":{"name":"Obj_lunar_rover","path":"objects/Obj_lunar_rover/Obj_lunar_rover.yy",},},
+    {"id":{"name":"Obj_player","path":"objects/Obj_player/Obj_player.yy",},},
+    {"id":{"name":"Obj_satelite_lro","path":"objects/Obj_satelite_lro/Obj_satelite_lro.yy",},},
+    {"id":{"name":"Obj_ship","path":"objects/Obj_ship/Obj_ship.yy",},},
+    {"id":{"name":"beta_room","path":"rooms/beta_room/beta_room.yy",},},
+    {"id":{"name":"background","path":"sprites/background/background.yy",},},
+    {"id":{"name":"frot_down_iddle","path":"sprites/frot_down_iddle/frot_down_iddle.yy",},},
+    {"id":{"name":"frot_down_move","path":"sprites/frot_down_move/frot_down_move.yy",},},
+    {"id":{"name":"frot_left_iddle","path":"sprites/frot_left_iddle/frot_left_iddle.yy",},},
+    {"id":{"name":"frot_left_move","path":"sprites/frot_left_move/frot_left_move.yy",},},
+    {"id":{"name":"frot_right_iddle","path":"sprites/frot_right_iddle/frot_right_iddle.yy",},},
+    {"id":{"name":"frot_right_move","path":"sprites/frot_right_move/frot_right_move.yy",},},
+    {"id":{"name":"frot_up_iddle","path":"sprites/frot_up_iddle/frot_up_iddle.yy",},},
+    {"id":{"name":"frot_up_move","path":"sprites/frot_up_move/frot_up_move.yy",},},
+    {"id":{"name":"placeholder_tile","path":"sprites/placeholder_tile/placeholder_tile.yy",},},
+    {"id":{"name":"placeholderBG","path":"sprites/placeholderBG/placeholderBG.yy",},},
+    {"id":{"name":"Sp_dish","path":"sprites/Sp_dish/Sp_dish.yy",},},
+    {"id":{"name":"Sp_energybar","path":"sprites/Sp_energybar/Sp_energybar.yy",},},
+    {"id":{"name":"Sp_healthbar","path":"sprites/Sp_healthbar/Sp_healthbar.yy",},},
+    {"id":{"name":"Sp_lunar_rover","path":"sprites/Sp_lunar_rover/Sp_lunar_rover.yy",},},
+    {"id":{"name":"Sp_satelite_lro","path":"sprites/Sp_satelite_lro/Sp_satelite_lro.yy",},},
+    {"id":{"name":"Sp_ship","path":"sprites/Sp_ship/Sp_ship.yy",},},
+    {"id":{"name":"tabo_down_iddle","path":"sprites/tabo_down_iddle/tabo_down_iddle.yy",},},
+    {"id":{"name":"tabo_down_move","path":"sprites/tabo_down_move/tabo_down_move.yy",},},
+    {"id":{"name":"tabo_left_iddle","path":"sprites/tabo_left_iddle/tabo_left_iddle.yy",},},
+    {"id":{"name":"tabo_left_move","path":"sprites/tabo_left_move/tabo_left_move.yy",},},
+    {"id":{"name":"tabo_right_iddle","path":"sprites/tabo_right_iddle/tabo_right_iddle.yy",},},
+    {"id":{"name":"tabo_right_move","path":"sprites/tabo_right_move/tabo_right_move.yy",},},
+    {"id":{"name":"tabo_up_iddle","path":"sprites/tabo_up_iddle/tabo_up_iddle.yy",},},
+    {"id":{"name":"tabo_up_move","path":"sprites/tabo_up_move/tabo_up_move.yy",},},
+    {"id":{"name":"placeholder","path":"tilesets/placeholder/placeholder.yy",},},
   ],
-  "resourceType": "GMProject",
-  "resourceVersion": "2.0",
-  "RoomOrderNodes": [
-    {
-      "roomId": { "name": "beta_room", "path": "rooms/beta_room/beta_room.yy" }
-    }
+  "resourceType":"GMProject",
+  "resourceVersion":"2.0",
+  "RoomOrderNodes":[
+    {"roomId":{"name":"beta_room","path":"rooms/beta_room/beta_room.yy",},},
   ],
-  "templateType": "game",
-  "TextureGroups": [
-    {
-      "$GMTextureGroup": "",
-      "%Name": "Default",
-      "autocrop": true,
-      "border": 2,
-      "compressFormat": "bz2",
-      "customOptions": "",
-      "directory": "",
-      "groupParent": null,
-      "isScaled": true,
-      "loadType": "default",
-      "mipsToGenerate": 0,
-      "name": "Default",
-      "resourceType": "GMTextureGroup",
-      "resourceVersion": "2.0",
-      "targets": -1
-    }
-  ]
+  "templateType":"game",
+  "TextureGroups":[
+    {"$GMTextureGroup":"","%Name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Default","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+  ],
 }
