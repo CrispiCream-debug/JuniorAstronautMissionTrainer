@@ -31,6 +31,8 @@
   "physicsStartAwake":true,
   "properties":[
     {"$GMObjectProperty":"v2","%Name":"streak","filters":[],"listItems":[],"multiselect":false,"name":"streak","rangeEnabled":true,"rangeMax":100.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
+    {"$GMObjectProperty":"v2","%Name":"health_","filters":[],"listItems":[],"multiselect":false,"name":"health_","rangeEnabled":false,"rangeMax":100.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"100","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"energy_","filters":[],"listItems":[],"multiselect":false,"name":"energy_","rangeEnabled":false,"rangeMax":100.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"100","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
